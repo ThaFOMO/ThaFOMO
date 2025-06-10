@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,13 +136,6 @@
       box-shadow: 0 0 10px #1DB954aa;
       cursor: pointer;
     }
-    #site-video {
-      max-width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 0 12px #1DB954cc;
-      display: block;
-      margin: 2rem auto;
-    }
   </style>
 </head>
 <body>
@@ -160,12 +154,6 @@
     <section id="about-bike">
       <h2>About Josh's Bike - TUTTIO Soleil 01</h2>
       <p>Josh recently got this custom <strong>TUTTIO Soleil 01</strong> eBike 🚴‍♂️⚡️ — a sleek, powerful ride perfect for city cruising and urban exploration. He’s strapping on a GoPro for epic ride footage, so follow along for adventures and mods! 🎥📸</p>
-
-      <!-- Added video element -->
-      <video id="site-video" controls loop muted>
-        <source src="IMG_3874.MP4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
     </section>
 
     <section id="recommended">
@@ -219,24 +207,28 @@
   </footer>
 
   <button id="sound-toggle">🔇 Sound Off</button>
+  <audio id="site-audio" loop>
+    <source src="IMG_3874.MP4" type="audio/mp4">
+    Your browser does not support the audio element.
+  </audio>
 
   <script>
     const toggleBtn = document.getElementById('sound-toggle');
-    const video = document.getElementById('site-video');
-    let isMuted = true; // start muted
-
-    // Autoplay video muted on load
-    video.muted = isMuted;
-    video.play().catch(() => {
-      // autoplay might be blocked by browser; no worries
-    });
+    const audio = document.getElementById('site-audio');
+    let isPlaying = false;
 
     toggleBtn.addEventListener('click', () => {
-      isMuted = !isMuted;
-      video.muted = isMuted;
-      toggleBtn.textContent = isMuted ? '🔇 Sound Off' : '🔊 Sound On';
+      if (isPlaying) {
+        audio.pause();
+        toggleBtn.textContent = '🔇 Sound Off';
+      } else {
+        audio.play();
+        toggleBtn.textContent = '🔊 Sound On';
+      }
+      isPlaying = !isPlaying;
     });
   </script>
 </body>
-</html>
-
+</html><audio id="backgroundAudio" loop>
+  <source src="compressed_audio.mp3" type="audio/mp3">
+</audio>
