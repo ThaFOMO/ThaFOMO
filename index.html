@@ -191,35 +191,43 @@
     &copy; 2025 Josh's Ebike & Urbex | Built with ❤️ by Clickey
   </footer>
 </body>
-</html> <!-- Sound Toggle Button + YouTube Embed -->
-<button id="sound-btn">Sound On 🔊</button>
-<iframe id="ytplayer" width="0" height="0"
-  src="https://www.youtube.com/embed/3IhS3hLvhEc?enablejsapi=1"
-  frameborder="0" allow="autoplay"></iframe>
+</html> <!-- YouTube Sound Toggle -->
+<div id="yt-sound-wrap">
+  <button id="sound-btn">Sound On 🔊</button>
+  <iframe
+    id="ytplayer"
+    width="0"
+    height="0"
+    src="https://www.youtube.com/embed/3IhS3hLvhEc?enablejsapi=1&mute=1"
+    frameborder="0"
+    allow="autoplay"
+  ></iframe>
+</div>
 
 <script>
+  let player;
   let isPlaying = false;
-  const btn = document.getElementById("sound-btn");
 
-  // Load YouTube Player API
-  const tag = document.createElement('script');
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player("ytplayer");
+  }
+
+  const tag = document.createElement("script");
   tag.src = "https://www.youtube.com/iframe_api";
   document.body.appendChild(tag);
 
-  let ytPlayer;
-  function onYouTubeIframeAPIReady() {
-    ytPlayer = new YT.Player('ytplayer');
-  }
+  document.getElementById("sound-btn").addEventListener("click", () => {
+    if (!player) return;
 
-  btn.addEventListener('click', () => {
-    if (!ytPlayer) return;
-    if (isPlaying) {
-      ytPlayer.pauseVideo();
-      btn.textContent = "Sound On 🔊";
+    if (!isPlaying) {
+      player.unMute();
+      player.playVideo();
+      document.getElementById("sound-btn").innerText = "Sound Off 🔇";
     } else {
-      ytPlayer.playVideo();
-      btn.textContent = "Sound Off 🔇";
+      player.pauseVideo();
+      document.getElementById("sound-btn").innerText = "Sound On 🔊";
     }
+
     isPlaying = !isPlaying;
   });
 </script>
@@ -229,18 +237,14 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #1DB954;
+    background-color: #1db954;
     color: white;
-    padding: 12px 18px;
     border: none;
-    border-radius: 25px;
+    border-radius: 20px;
+    padding: 10px 20px;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 0 10px #1DB954aa;
     z-index: 9999;
+    box-shadow: 0 0 10px #1db954aa;
   }
 </style>
-
-
-
-
