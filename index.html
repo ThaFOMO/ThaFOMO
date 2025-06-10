@@ -195,7 +195,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Sound Toggle Example</title>
+  <title>Sound Toggle</title>
   <style>
     body {
       background: #111;
@@ -240,17 +240,17 @@
       height: '0',
       width: '0',
       videoId: '1H2v8P7YbAo', // Baby by Lil Baby ft DaBaby
-      playerVars: { 'autoplay': 0, 'controls': 0 },
-      events: {
-        'onReady': function () {
-          // Wait for user to click
-        }
+      playerVars: {
+        autoplay: 0,
+        controls: 0,
+        mute: 1
       }
     });
   }
 
   document.getElementById("toggle-sound").addEventListener("click", function () {
     if (!isPlaying) {
+      player.unMute();
       player.playVideo();
       this.textContent = "Sound Off";
     } else {
@@ -263,4 +263,3 @@
 
 </body>
 </html>
-
