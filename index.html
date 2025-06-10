@@ -192,71 +192,75 @@
   </footer>
 </body>
 </html> <!DOCTYPE html>
-<html <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Sound Toggle Video</title>
+  <meta charset="UTF-8" />
+  <title>Sound Toggle Example</title>
   <style>
-    #sound-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #1db954;
+    body {
+      background: #111;
       color: white;
-      border: none;
-      border-radius: 20px;
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    #toggle-sound {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #1DB954;
+      color: white;
       padding: 10px 20px;
-      font-weight: bold;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
       cursor: pointer;
-      z-index: 9999;
-      box-shadow: 0 0 10px #1db954aa;
+      z-index: 999;
+    }
+    #player {
+      display: none;
     }
   </style>
 </head>
 <body>
 
-  <button id="sound-btn">Sound On 🔊</button>
-  <div id="player"></div>
+<button id="toggle-sound">Sound On</button>
+<div id="player"></div>
 
-  <script>
-    let player;
-    let isPlaying = false;
+<script>
+  let tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  document.body.appendChild(tag);
 
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player("player", {
-        height: "0",
-        width: "0",
-        videoId: "3IhS3hLvhEc", // Baby - Lil Baby ft. DaBaby
-        playerVars: {
-          autoplay: 0,
-          controls: 0,
-          rel: 0,
-          mute: 1
-        },
-        events: {
-          onReady: function () {
-            document.getElementById("sound-btn").addEventListener("click", function () {
-              if (!isPlaying) {
-                player.unMute();
-                player.playVideo();
-                this.innerText = "Sound Off 🔇";
-              } else {
-                player.pauseVideo();
-                this.innerText = "Sound On 🔊";
-              }
-              isPlaying = !isPlaying;
-            });
-          }
+  let player;
+  let isPlaying = false;
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '0',
+      width: '0',
+      videoId: '1H2v8P7YbAo', // Baby by Lil Baby ft DaBaby
+      playerVars: { 'autoplay': 0, 'controls': 0 },
+      events: {
+        'onReady': function () {
+          // Wait for user to click
         }
-      });
-    }
+      }
+    });
+  }
 
-    // Load YouTube API
-    const tag = document.createElement("script");
-    tag.src = "https://www.youtube.com/iframe_api";
-    document.body.appendChild(tag);
-  </script>
+  document.getElementById("toggle-sound").addEventListener("click", function () {
+    if (!isPlaying) {
+      player.playVideo();
+      this.textContent = "Sound Off";
+    } else {
+      player.pauseVideo();
+      this.textContent = "Sound On";
+    }
+    isPlaying = !isPlaying;
+  });
+</script>
 
 </body>
 </html>
+
