@@ -2,117 +2,171 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Josh's E-Bike Adventures</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Josh's eBike Hub</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #0e0e0e;
-      color: #f0f0f0;
-      margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #eee;
+      margin: 0; padding: 0;
     }
     header {
-      background-color: #1c1c1c;
-      padding: 30px;
+      background: #1e1e1e;
+      padding: 1rem;
       text-align: center;
+      border-bottom: 2px solid #f57c00;
     }
     header h1 {
       margin: 0;
-      font-size: 2.7em;
+      color: #f57c00;
+      font-size: 2.5rem;
     }
-    header p {
-      font-size: 1.1em;
-      color: #ccc;
-    }
-    a {
-      color: #4ad8ff;
-      text-decoration: none;
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
     }
     section {
-      padding: 40px 20px;
+      margin-bottom: 3rem;
     }
     h2 {
-      border-bottom: 2px solid #4ad8ff;
-      padding-bottom: 10px;
-      margin-bottom: 25px;
+      border-bottom: 2px solid #f57c00;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+      color: #f57c00;
     }
-    .bike-list {
+    .bike {
       display: flex;
-      flex-wrap: wrap;
-      gap: 25px;
+      gap: 1rem;
+      background: #222;
+      border-radius: 8px;
+      padding: 1rem;
+      align-items: center;
     }
-    .bike-item {
-      background: #1a1a1a;
-      padding: 20px;
-      border-radius: 12px;
-      width: calc(33% - 20px);
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
-    }
-    .bike-item img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
+    .bike img {
+      width: 180px;
       height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 0 10px #f57c00;
     }
-    .bike-item h3 {
-      margin: 10px 0 8px;
-      font-size: 1.2em;
+    .bike-details {
+      flex: 1;
     }
-    .discord-link {
-      background: #4ad8ff;
-      color: #000;
-      padding: 15px;
-      text-align: center;
+    .bike-details h3 {
+      margin: 0 0 0.5rem 0;
+      color: #f9a825;
+    }
+    .bike-details p {
+      margin: 0;
+      line-height: 1.4;
+    }
+    .socials {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    .socials a {
+      color: #f57c00;
+      text-decoration: none;
       font-weight: bold;
-      font-size: 1.2em;
-      margin-top: 30px;
-      border-radius: 10px;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+    .socials a:hover {
+      color: #ffb74d;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    .discord-invite {
+      margin-top: 1rem;
+      text-align: center;
+    }
+    .discord-invite a {
+      background: #7289da;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 10px #7289da;
+      transition: background 0.3s;
       display: inline-block;
+    }
+    .discord-invite a:hover {
+      background: #5b6eae;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Josh's E-Bike Adventures 🚴‍♂️</h1>
-    <p>Explore. Ride. Film. Powered by passion and pixels 🎥</p>
+    <h1>Josh's eBike Hub</h1>
   </header>
-
-  <section id="featured-bike">
-    <h2>🔥 Josh's E-Bike</h2>
-    <div class="bike-item">
-      <img src="https://i.imgur.com/1lPioOg.jpg" alt="Josh's Bike - TUTTIO Soleil 01" />
-      <h3>TUTTIO Soleil 01</h3>
-      <p>Josh recently got the TUTTIO Soleil 01 — a slick, powerful e-bike perfect for urban exploration, filming GoPro rides, and turning everyday streets into adventures. Follow his rides and urbex edits across the city and online. 🌆⚡</p>
-    </div>
-  </section>
-
-  <section id="recommended-bikes">
-    <h2>🔧 Recommended E-Bikes</h2>
-    <div class="bike-list">
-      <div class="bike-item">
-        <img src="https://m.media-amazon.com/images/I/71z+NoZEzEL._AC_SL1500_.jpg" alt="Ride1Up 700 Series" />
-        <h3>Ride1Up 700 Series</h3>
-        <p>A versatile e-bike with great range and speed, ideal for commuting and long scenic rides. 🔋🛣️</p>
+  <main>
+    <section id="josh-bike">
+      <h2>Josh's Personal eBike</h2>
+      <div class="bike">
+        <img src="https://media.discordapp.net/attachments/1381743585950568450/1381764273465987273/Snapchat-2106833581.jpg?format=webp&width=567&height=1008" alt="Josh's TUTTIO Soleil 01" />
+        <div class="bike-details">
+          <h3>TUTTIO Soleil 01</h3>
+          <p>This is Josh's personal eBike, perfect for cruising the city and Urbex adventures. Recently acquired and gearing up with a GoPro to record all the rides and explorations! 🚴‍♂️📸</p>
+        </div>
       </div>
-      <div class="bike-item">
-        <img src="https://th.bing.com/th/id/OIP.90D1npOh_llGFN3P5pQ2KQHaE8?rs=1&pid=ImgDetMain" alt="Rad Power Bikes RadRover 5" />
-        <h3>Rad Power Bikes RadRover 5</h3>
-        <p>Fat tires & rugged design make it perfect for off-roading and dirt trails. 🌲💪</p>
-      </div>
-      <div class="bike-item">
-        <img src="https://p.globalsources.com/IMAGES/PDT/B1188568717/Sur-ron-motocross-dirt-bike.jpg" alt="Sur-Ron Dirt Bike" />
-        <h3>Sur-Ron Motocross</h3>
-        <p>A high-powered electric dirt bike built for stunts and speed. ⚡🏍️</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section>
-    <h2>📱 Join Our Community</h2>
-    <a class="discord-link" href="https://discord.gg/YZkGFEeAFy" target="_blank">💬 Join the Discord to ride & chat!</a>
-  </section>
+    <section id="recommended-bikes">
+      <h2>Recommended eBikes</h2>
+
+      <div class="bike">
+        <img src="https://m.media-amazon.com/images/I/71z+NoZEzEL._AC_SL1500_.jpg" alt="Rad Power Bikes RadRover 5" />
+        <div class="bike-details">
+          <h3>Rad Power Bikes RadRover 5</h3>
+          <p>A popular fat-tire electric bike great for off-road trails and city streets alike. Reliable and powerful! ⚡🚴‍♂️</p>
+        </div>
+      </div>
+
+      <div class="bike">
+        <img src="https://th.bing.com/th/id/OIP.90D1npOh_llGFN3P5pQ2KQHaE8?rs=1&pid=ImgDetMain" alt="Specialized Turbo Vado SL" />
+        <div class="bike-details">
+          <h3>Specialized Turbo Vado SL</h3>
+          <p>Lightweight and fast electric commuter bike, perfect for daily rides with great battery life. ⚡🚲</p>
+        </div>
+      </div>
+
+      <div class="bike">
+        <img src="https://p.globalsources.com/IMAGES/PDT/B1188568717/Sur-ron-motocross-dirt-bike.jpg" alt="Sur-Ron Motocross Dirt Bike" />
+        <div class="bike-details">
+          <h3>Sur-Ron Motocross Dirt Bike</h3>
+          <p>A powerful electric dirt bike built for serious off-road adventures and adrenaline seekers. 🏁⚡</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="socials">
+      <h2>Follow Josh</h2>
+      <p>Stay updated on Josh’s rides, Urbex adventures, and eBike mods!</p>
+      <div class="socials">
+        <a href="https://youtube.com/@joshstuttio" target="_blank" rel="noopener">▶️ YouTube</a>
+        <a href="https://www.tiktok.com/@tiktokjoshhhh" target="_blank" rel="noopener">🎵 TikTok</a>
+        <a href="https://discord.gg/YZkGFEeAFy" target="_blank" rel="noopener">💬 Discord</a>
+      </div>
+    </section>
+
+    <section class="discord-invite">
+      <h2>Join Our Discord Community</h2>
+      <a href="https://discord.gg/YZkGFEeAFy" target="_blank" rel="noopener">Join Josh’s eBike Discord 🚀</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Josh's eBike Hub — All rights reserved</p>
+  </footer>
 </body>
 </html>
-
 
