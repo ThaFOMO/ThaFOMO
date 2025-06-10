@@ -188,78 +188,7 @@
   </main>
 
   <footer>
-    &copy; 2025 Josh's Ebike & Urbex | Built with ❤️ by Clickey
+    &copy; 2025 Josh's Ebike & Urbex |
   </footer>
-</body>
-</html> <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Sound Toggle</title>
-  <style>
-    body {
-      background: #111;
-      color: white;
-      font-family: sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    #toggle-sound {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: #1DB954;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 30px;
-      font-size: 1rem;
-      cursor: pointer;
-      z-index: 999;
-    }
-    #player {
-      display: none;
-    }
-  </style>
-</head>
-<body>
-
-<button id="toggle-sound">Sound On</button>
-<div id="player"></div>
-
-<script>
-  let tag = document.createElement('script');
-  tag.src = "https://www.youtube.com/iframe_api";
-  document.body.appendChild(tag);
-
-  let player;
-  let isPlaying = false;
-
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-      height: '0',
-      width: '0',
-      videoId: '1H2v8P7YbAo', // Baby by Lil Baby ft DaBaby
-      playerVars: {
-        autoplay: 0,
-        controls: 0,
-        mute: 1
-      }
-    });
-  }
-
-  document.getElementById("toggle-sound").addEventListener("click", function () {
-    if (!isPlaying) {
-      player.unMute();
-      player.playVideo();
-      this.textContent = "Sound Off";
-    } else {
-      player.pauseVideo();
-      this.textContent = "Sound On";
-    }
-    isPlaying = !isPlaying;
-  });
-</script>
-
 </body>
 </html>
