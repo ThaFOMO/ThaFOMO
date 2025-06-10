@@ -191,60 +191,77 @@
     &copy; 2025 Josh's Ebike & Urbex | Built with ❤️ by Clickey
   </footer>
 </body>
-</html> <!-- YouTube Sound Toggle -->
-<div id="yt-sound-wrap">
+</html> <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sound Toggle Video</title>
+  <style>
+    #sound-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #1db954;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 20px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 9999;
+      box-shadow: 0 0 10px #1db954aa;
+    }
+    iframe {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
   <button id="sound-btn">Sound On 🔊</button>
-  <iframe
-    id="ytplayer"
-    width="0"
-    height="0"
-    src="https://www.youtube.com/embed/3IhS3hLvhEc?enablejsapi=1&mute=1"
-    frameborder="0"
-    allow="autoplay"
-  ></iframe>
-</div>
+  <div id="player"></div>
 
-<script>
-  let player;
-  let isPlaying = false;
+  <script>
+    let player;
+    let isPlaying = false;
 
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player("ytplayer");
-  }
-
-  const tag = document.createElement("script");
-  tag.src = "https://www.youtube.com/iframe_api";
-  document.body.appendChild(tag);
-
-  document.getElementById("sound-btn").addEventListener("click", () => {
-    if (!player) return;
-
-    if (!isPlaying) {
-      player.unMute();
-      player.playVideo();
-      document.getElementById("sound-btn").innerText = "Sound Off 🔇";
-    } else {
-      player.pauseVideo();
-      document.getElementById("sound-btn").innerText = "Sound On 🔊";
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player("player", {
+        height: "0",
+        width: "0",
+        videoId: "3IhS3hLvhEc", // "Baby" by Lil Baby ft. DaBaby
+        playerVars: {
+          autoplay: 0,
+          controls: 0,
+          rel: 0,
+          enablejsapi: 1,
+          mute: 1
+        },
+        events: {
+          onReady: function () {
+            document.getElementById("sound-btn").addEventListener("click", function () {
+              if (!isPlaying) {
+                player.unMute();
+                player.playVideo();
+                this.innerText = "Sound Off 🔇";
+              } else {
+                player.pauseVideo();
+                this.innerText = "Sound On 🔊";
+              }
+              isPlaying = !isPlaying;
+            });
+          }
+        }
+      });
     }
 
-    isPlaying = !isPlaying;
-  });
-</script>
+    // Load YouTube API
+    const tag = document.createElement("script");
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.body.appendChild(tag);
+  </script>
 
-<style>
-  #sound-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #1db954;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    padding: 10px 20px;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 9999;
-    box-shadow: 0 0 10px #1db954aa;
-  }
-</style>
+</body>
+</html>
+
+   
